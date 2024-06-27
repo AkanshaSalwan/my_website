@@ -10,8 +10,8 @@
 
     <!-- icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- icon end -->
@@ -23,754 +23,674 @@
 
         .dropdown:hover .dropdown-menu {
             display: block;
-            
+
         }
 
         @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-@keyframes fadeInRight {
-    from {
-        opacity: 0;
-        transform: translateX(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-@keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-.animate-fadeIn {
-    animation: fadeIn 2s ease-in-out;
-}
-.animate-fadeInRight {
-    animation: fadeInRight 2s ease-in-out;
-}
-.animate-slideInLeft {
-    animation: slideInLeft 2s ease-in-out;
-}
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .animate-fadeInRight {
+            animation: fadeInRight 2s ease-in-out;
+        }
+
+        .animate-slideInLeft {
+            animation: slideInLeft 2s ease-in-out;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-bg {
+            background-color: #f0f4f8; /* Light blue background */
+        }
+        .card-title {
+            color: #00796b; /* Teal color */
+        }
+        .card-content {
+            color: #374151; /* Dark gray color */
+        }
+        .card-shadow {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
        
+
     </style>
 </head>
 
 <body>
-<!-- navbar start -->
-<nav class="bg-white border-gray-200 dark:bg-gray-900">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
-            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">AvaChatBot</span>
-        </a>
-        <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <div class="flex items-center space-x-4">
-                <button class="text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-600">
-                    <i class="fas fa-search"></i>
-                </button>
-                <a href="#" class="text-gray-900 hover:text-blue-700 dark:text-white dark:hover:text-blue-500">My Account <i class="fa-solid fa-address-book"></i></a>
-                <button class="bg-gray-800 text-white px-5 py-2.5 rounded-lg hover:bg-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600">Login <i class="fas fa-sign-in-alt"></i></button>
-            </div>
-            <div class="relative">
-                <button type="button" class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
-                    <span class="sr-only">Open user menu</span>
-                </button>
-                <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
-                    <div class="px-4 py-3">
-                        <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
-                        <span class="block text-sm text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
-                    </div>
-                    <ul class="py-2" aria-labelledby="user-menu-button">
-                        <li>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <button data-collapse-toggle="navbar-user" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-user" aria-expanded="false">
-                <span class="sr-only">Open main menu</span>
-                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
-                </svg>
-            </button>
-        </div>
-        <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
-            <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                <li class="relative dropdown">
-                    <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Products <i class="fas fa-caret-down"></i></a>
-                    <div class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg dropdown-menu">
-                        <a href="Benefits.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Benefits</a>
-                        <a href="Features.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Features</a>
-                        <a href="VisualBuilder.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Visual Builder</a>
-                    </div>
-                </li>
-                <li class="relative dropdown">
-                    <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Solutions <i class="fas fa-caret-down"></i></a>
-                    <div class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg dropdown-menu">
-                        <a href="Marketing.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i class="fa-solid fa-bullhorn"></i> Marketing</a>
-                        <a href="Sales.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i class="fa-solid fa-cart-shopping"></i>Sales</a>
-                        <a href="Support.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i class="fa-solid fa-address-book"></i>Support</a>
-                        <a href="Education.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i class="fa-solid fa-graduation-cap"></i>Education</a>
-                        <a href="Enterprise.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i class="fa-solid fa-earth-americas"></i>Enterprise</a>
-                        <a href="Healthcare.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i class="fa-regular fa-heart"></i>Healthcare</a>
-                    </div>
-                </li>
-                <li class="relative dropdown">
-                    <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Integration <i class="fas fa-caret-down"></i></a>
-                    <div class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg dropdown-menu">
-                        <a href="LiveWidget.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i class="fa-solid fa-message"></i>Chat Widget</a>
-                        <a href="LiveChat.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i class="fa-solid fa-headset"></i>Live Chat</a>
-                        <a href="HelpDesk.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i class="fa-regular fa-square-check"></i>Help Desk</a>
-                        <a href="FaceBookMessenger.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i class="fa-brands fa-facebook-messenger"></i>FaceBook Messenger</a>
-                        <a href="Shopify.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i class="fa-brands fa-shopify"></i>Shopify</a>
-                        <a href="Slack.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i class="fa-brands fa-slack"></i>Slack</a>
-                        <a href="WordPress.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i class="fa-brands fa-wordpress-simple"></i>WordPress</a>
-                        <a href="SeeAllIntegration.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">See all Integration</a>
-                    </div>
-                </li>
-                <li class="relative dropdown">
-                    <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Resources <i class="fas fa-caret-down"></i></a>
-                    <div class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg dropdown-menu">
-                        <a href="HelpCenter.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i class="fa-solid fa-handshake-angle"></i>Help Center</a>
-                        <a href="API&Developers.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i class="fa-brands fa-uncharted"></i>API & Developers</a>
-                        <a href="PartnerProgram.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i class="fa-regular fa-star"></i>Partner Program</a>
-                    </div>
-                </li>
-               
-                <li>
-                    <a href="Pricing.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Pricing</a>
-                </li> 
-            </ul>
-        </div>
-    </div>
-</nav>
-
-    <!-- navbar end -->
-<!-- hero section  -->
-<section class="bg-white dark:bg-gray-900 animate-fadeIn">
-    <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-        <div class="mr-auto place-self-center lg:col-span-7">
-            <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
-                <span class="inline-block animate-slideInLeft">Integrating LiveChat</span> <i class="fa-solid fa-headset animate-bounce"></i>
-            </h1>
-            <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-                "From instant customer support to seamless engagement, businesses worldwide rely on AvaChatBot to enhance their online presence."
-            </p>
-            <a href="#"
-                class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 transform hover:scale-105 transition-transform">
-                Get started
-                <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                        clip-rule="evenodd"></path>
-                </svg>
+    <!-- navbar start -->
+    <nav class="bg-white border-gray-200 dark:bg-gray-900">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">AvaChatBot</span>
             </a>
-           
-        </div>
-        <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-            <img src="https://chat360.io/wp-content/uploads/2021/05/Top-10-website-chatbot-examples-of-2022.svg" alt="mockup" class="animate-fadeInRight">
-        </div>
-    </div>
-</section>
-<br>
-<br>
-<!-- hero section end -->
-    
-
-
-<!-- features start -->
-<section id="features" class="container mx-auto px-4 space-y-6 bg-slate-50 py-8 md:py-12 lg:py-20">
-
-    <div class="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
-
-        <h2 class="font-bold text-3xl leading-[1.1] sm:text-3xl md:text-6xl">Steps for Integrating LiveChat</h2>
-
-        <p class="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-            "The live chat feature of our AvaChatBot enhances user experiences through personalized recommendations and content tailored to individual preferences and behavior."
-        </p>
-
-    </div>
-
-    <div class="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
-
-        <div
-            class="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
-            <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
-               
-                <div class="space-y-2">
-                    <h3 class="font-bold">Step 01</h3>
-                    <h4><b>Sign Up for LiveChat : </b></h4>
-                    <p class="text-sm text-muted-foreground">If you don't have a LiveChat account, sign up for one at LiveChat.</p>
+            <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                <div class="flex items-center space-x-4">
+                    <button
+                        class="text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-600">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <a href="#" class="text-gray-900 hover:text-blue-700 dark:text-white dark:hover:text-blue-500">My
+                        Account <i class="fa-solid fa-address-book"></i></a>
+                    <button
+                        class="bg-gray-800 text-white px-5 py-2.5 rounded-lg hover:bg-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600">Login
+                        <i class="fas fa-sign-in-alt"></i></button>
                 </div>
-            </div>
-        </div>
-
-        <div
-            class="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
-            <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
-                
-                <div class="space-y-2">
-                    <h3 class="font-bold">Step 02</h3>
-                    <h4><b>Access LiveChat Developer Console :</b></h4>
-                    <p class="text-sm">
-                        <ul>
-                            <li>Log in to your LiveChat account.</li>
-                            <li>Go to the Developer Console at <a
-                                    href="https://developers.livechat.com/console/">https://developers.livechat.com/console/</a>.
+                <div class="relative">
+                    <button type="button"
+                        class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                        id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
+                        data-dropdown-placement="bottom">
+                        <span class="sr-only">Open user menu</span>
+                    </button>
+                    <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
+                        id="user-dropdown">
+                        <div class="px-4 py-3">
+                            <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
+                            <span
+                                class="block text-sm text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
+                        </div>
+                        <ul class="py-2" aria-labelledby="user-menu-button">
+                            <li>
+                                <a href="#"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
+                                    out</a>
                             </li>
                         </ul>
-                    </p>
+                    </div>
+                </div>
+                <button data-collapse-toggle="navbar-user" type="button"
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    aria-controls="navbar-user" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 1h15M1 7h15M1 13h15" />
+                    </svg>
+                </button>
+            </div>
+            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
+                <ul
+                    class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <li class="relative dropdown">
+                        <a href="#"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Products
+                            <i class="fas fa-caret-down"></i></a>
+                        <div
+                            class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg dropdown-menu">
+                            <a href="Benefits.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Benefits</a>
+                            <a href="Features.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Features</a>
+                            <a href="VisualBuilder.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Visual
+                                Builder</a>
+                        </div>
+                    </li>
+                    <li class="relative dropdown">
+                        <a href="#"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Solutions
+                            <i class="fas fa-caret-down"></i></a>
+                        <div
+                            class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg dropdown-menu">
+                            <a href="Marketing.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
+                                    class="fa-solid fa-bullhorn"></i> Marketing</a>
+                            <a href="Sales.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
+                                    class="fa-solid fa-cart-shopping"></i>Sales</a>
+                            <a href="Support.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
+                                    class="fa-solid fa-address-book"></i>Support</a>
+                            <a href="Education.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
+                                    class="fa-solid fa-graduation-cap"></i>Education</a>
+                            <a href="Enterprise.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
+                                    class="fa-solid fa-earth-americas"></i>Enterprise</a>
+                            <a href="Healthcare.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
+                                    class="fa-regular fa-heart"></i>Healthcare</a>
+                        </div>
+                    </li>
+                    <li class="relative dropdown">
+                        <a href="#"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Integration
+                            <i class="fas fa-caret-down"></i></a>
+                        <div
+                            class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg dropdown-menu">
+                            <a href="LiveWidget.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
+                                    class="fa-solid fa-message"></i>Chat Widget</a>
+                            <a href="LiveChat.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
+                                    class="fa-solid fa-headset"></i>Live Chat</a>
+                            <a href="HelpDesk.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
+                                    class="fa-regular fa-square-check"></i>Help Desk</a>
+                            <a href="FaceBookMessenger.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
+                                    class="fa-brands fa-facebook-messenger"></i>FaceBook Messenger</a>
+                            <a href="Shopify.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
+                                    class="fa-brands fa-shopify"></i>Shopify</a>
+                            <a href="Slack.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
+                                    class="fa-brands fa-slack"></i>Slack</a>
+                            <a href="WordPress.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
+                                    class="fa-brands fa-wordpress-simple"></i>WordPress</a>
+                            <a href="SeeAllIntegration.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">See
+                                all Integration</a>
+                        </div>
+                    </li>
+                    <li class="relative dropdown">
+                        <a href="#"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Resources
+                            <i class="fas fa-caret-down"></i></a>
+                        <div
+                            class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg dropdown-menu">
+                            <a href="HelpCenter.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
+                                    class="fa-solid fa-handshake-angle"></i>Help Center</a>
+                            <a href="API&Developers.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
+                                    class="fa-brands fa-uncharted"></i>API & Developers</a>
+                            <a href="PartnerProgram.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
+                                    class="fa-regular fa-star"></i>Partner Program</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="Pricing.html"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Pricing</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- navbar end -->
+    <!-- hero section  -->
+    <section class="bg-white dark:bg-gray-900 animate-fadeIn">
+        <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+            <div class="mr-auto place-self-center lg:col-span-7">
+                <h1
+                    class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
+                    <span class="inline-block animate-slideInLeft">Integrating LiveChat</span> <i
+                        class="fa-solid fa-headset animate-bounce"></i>
+                </h1>
+                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+                    "From instant customer support to seamless engagement, businesses worldwide rely on AvaChatBot to
+                    enhance their online presence."
+                </p>
+                <a href="#"
+                    class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 transform hover:scale-105 transition-transform">
+                    Get started
+                    <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+
+            </div>
+            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
+                <img src="https://chat360.io/wp-content/uploads/2021/05/Top-10-website-chatbot-examples-of-2022.svg"
+                    alt="mockup" class="animate-fadeInRight">
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+    <!-- hero section end -->
+    <br>
+    <br>
+   
+    <!-- card 2 start -->
+    <div
+        class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+        <h5 class="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Connect ChatBot with LiveChat in just a few
+            clicks..</h5>
+
+        <div class="items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
+
+
+
+            <form class="flex items-center max-w-sm mx-auto">
+                <label for="simple-search" class="sr-only">Search</label>
+                <div class="relative w-full">
+                 </div>
+                 <button type="button"
+                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-48">
+                 Try It For Free
+             </button>
+            </form>
+             
+
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- card 2 end -->
+     <!--  -->
+    
+     <div class="flex justify-center w-full items-center min-h-screen bg-gray-100 dark:bg-gray-900">
+        <div class="space-y-8 md:space-y-0 md:space-x-8 rtl:space-x-reverse md:flex md:items-center max-w-4xl mx-auto">
+            <div class="flex items-center justify-center w-full h-48 bg-gray-300 rounded sm:w-96 dark:bg-gray-700">
+                <img src="https://cdn.technologyadvice.com/wp-content/uploads/2018/02/friendly-chatbot.jpg" alt="Chatbot">
+            </div>
+            <div class="w-full">
+                <div class="bg-gray-200 rounded-full dark:bg-gray-700 max-w-[480px] mb-2.5 p-2">
+                    Meet our friendly chatbot, ready to assist you 24/7!
+                </div>
+                <div class="bg-gray-200 rounded-full dark:bg-gray-700 max-w-[480px] mb-2.5 p-2">
+                    Say "Hi!" to your new virtual assistant.
+                </div>
+                <div class="bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5 p-2">
+                    Our chatbot is here to make your online experience smoother.
+                </div>
+                <div class="bg-gray-200 rounded-full dark:bg-gray-700 max-w-[440px] mb-2.5 p-2">
+                    Get instant help and answers with just a click.
+                </div>
+                <div class="bg-gray-200 rounded-full dark:bg-gray-700 max-w-[460px] mb-2.5 p-2">
+                    Your personal digital assistant, always at your service.
+                </div>
+                <div class="bg-gray-200 rounded-full dark:bg-gray-700 max-w-[460px] mb-2.5 p-2">
+                    Enjoy seamless support with our advanced AI chatbot.
                 </div>
             </div>
         </div>
+    </div>
+    
+    <br>
+    <br>
+<br>
+<!--  -->
 
-        <div
-            class="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
-            <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
-               
-                <div class="space-y-2">
-                    <h3 class="font-bold">Step 03</h3>
-                    <h4><b>Create a New Agent App:</b></h4>
-                    <p class="text-sm text-muted-foreground">
+
+    <!-- features start -->
+     <div class="bg-slate-50 py-8 md:py-12 lg:py-20">
+    <section id="features" class="container mx-auto px-4 space-y-6">
+        <div class="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
+            <h2 class="font-bold text-3xl leading-[1.1] sm:text-3xl md:text-6xl">Steps for Integrating LiveChat</h2>
+            <p class="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
+                "The live chat feature of our AvaChatBot enhances user experiences through personalized recommendations
+                and content tailored to individual preferences and behavior."
+            </p>
+        </div>
+        <div class="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
+            <!-- Card 1 -->
+            <div class="relative overflow-hidden rounded-lg border bg-white select-none p-2 hover:shadow-lg card">
+                <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+                    <div class="space-y-2">
+                        <h3 class="font-bold">Step 01</h3>
+                        <h4><b>Sign Up for LiveChat :</b></h4>
+                        <p class="text-sm text-muted-foreground">If you don't have a LiveChat account, sign up for one at LiveChat.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="relative overflow-hidden rounded-lg border bg-white select-none p-2 hover:shadow-lg card">
+                <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+                    <div class="space-y-2">
+                        <h3 class="font-bold">Step 02</h3>
+                        <h4><b>Access LiveChat Developer Console :</b></h4>
+                        <p class="text-sm text-muted-foreground">
+                        <ul>
+                            <li>Log in to your LiveChat account.</li>
+                            <li>Go to the Developer Console at <a href="https://developers.livechat.com/console/" class="text-blue-500 underline">https://developers.livechat.com/console/</a>.</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="relative overflow-hidden rounded-lg border bg-white select-none p-2 hover:shadow-lg card">
+                <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+                    <div class="space-y-2">
+                        <h3 class="font-bold">Step 03</h3>
+                        <h4><b>Create a New Agent App:</b></h4>
+                        <p class="text-sm text-muted-foreground">
                         <ul>
                             <li>In the Developer Console, create a new Agent App.</li>
                             <li>Configure the app with necessary details and permissions.</li>
                         </ul>
-                    </p>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div
-            class="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
-            <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
-               
-                <div class="space-y-2">
-                    <h3 class="font-bold">Step 04</h3>
-                    <h4><b>Retrieve API Key:</b></h4>
-                    <p class="text-sm text-muted-foreground">After creating the Agent App, retrieve the API Key. This key will be used to
-                        authenticate your chatbot with LiveChat.</p>
+            <!-- Card 4 -->
+            <div class="relative overflow-hidden rounded-lg border bg-white select-none p-2 hover:shadow-lg card">
+                <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+                    <div class="space-y-2">
+                        <h3 class="font-bold">Step 04</h3>
+                        <h4><b>Retrieve API Key:</b></h4>
+                        <p class="text-sm text-muted-foreground">After creating the Agent App, retrieve the API Key. This key will be used to authenticate your chatbot with LiveChat.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div
-            class="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
-            <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
-                
-                <div class="space-y-2">
-                    <h3 class="font-bold">Step 05</h3>
-                    <h4><b>Develop Chatbot Logic :</b></h4>
-                    <p class="text-sm text-muted-foreground">
+            <!-- Card 5 -->
+            <div class="relative overflow-hidden rounded-lg border bg-white select-none p-2 hover:shadow-lg card">
+                <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+                    <div class="space-y-2">
+                        <h3 class="font-bold">Step 05</h3>
+                        <h4><b>Develop Chatbot Logic :</b></h4>
+                        <p class="text-sm text-muted-foreground">
                         <ul>
                             <li>Write or update your chatbot logic to handle interactions with LiveChat.</li>
-                            <li>Implement functionality to communicate with the LiveChat API using the API Key
-                                obtained in the previous step.</li>
-                        </ul> 
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div
-            class="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
-            <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
-               
-                <div class="space-y-2">
-                    <h3 class="font-bold">Step 06</h3>
-                    <h4><b>Integrate with LiveChat API:</b></h4>
-                    <p class="text-sm text-muted-foreground">
-                        <ul>
-                            <li>Use the LiveChat API to perform actions such as sending and receiving messages,
-                                handling chat events, etc.</li>
-                            <li>Refer to the LiveChat API documentation for specific details on how to interact
-                                with their API.</li>
+                            <li>Implement functionality to communicate with the LiveChat API using the API Key obtained in the previous step.</li>
                         </ul>
-                    </p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 6 -->
+            <div class="relative overflow-hidden rounded-lg border bg-white select-none p-2 hover:shadow-lg card">
+                <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+                    <div class="space-y-2">
+                        <h3 class="font-bold">Step 06</h3>
+                        <h4><b>Integrate with LiveChat API:</b></h4>
+                        <p class="text-sm text-muted-foreground">
+                        <ul>
+                            <li>Use the LiveChat API to perform actions such as sending and receiving messages, handling chat events, etc.</li>
+                            <li>Refer to the LiveChat API documentation for specific details on how to interact with their API.</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 7 -->
+            <div class="relative overflow-hidden rounded-lg border bg-white select-none p-2 hover:shadow-lg card">
+                <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+                    <div class="space-y-2">
+                        <h3 class="font-bold">Step 07</h3>
+                        <h4><b>Handle Chat Events:</b></h4>
+                        <p class="text-sm text-muted-foreground">Configure your chatbot to handle various chat events, such as when a new chat starts, when a message is received, etc.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 8 -->
+            <div class="relative overflow-hidden rounded-lg border bg-white select-none p-2 hover:shadow-lg card">
+                <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+                    <div class="space-y-2">
+                        <h3 class="font-bold">Step 08</h3>
+                        <h4><b>Test Integration:</b></h4>
+                        <p class="text-sm text-muted-foreground">Test your chatbot's integration with LiveChat. Make sure it can send and receive messages as expected.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 9 -->
+            <div class="relative overflow-hidden rounded-lg border bg-white select-none p-2 hover:shadow-lg card">
+                <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+                    <div class="space-y-2">
+                        <h3 class="font-bold">Step 09</h3>
+                        <h4><b>Handle Responses:</b></h4>
+                        <p class="text-sm text-muted-foreground">Implement logic in your chatbot to handle responses from LiveChat. For example, acknowledge when a message is received and respond accordingly.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 10 -->
+            <div class="relative overflow-hidden rounded-lg border bg-white select-none p-2 hover:shadow-lg card">
+                <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+                    <div class="space-y-2">
+                        <h3 class="font-bold">Step 10</h3>
+                        <h4><b>Error Handling:</b></h4>
+                        <p class="text-sm text-muted-foreground">Implement proper error handling in your chatbot to manage cases where the integration with LiveChat API may fail.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 11 -->
+            <div class="relative overflow-hidden rounded-lg border bg-white select-none p-2 hover:shadow-lg card">
+                <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+                    <div class="space-y-2">
+                        <h3 class="font-bold">Step 11</h3>
+                        <h4><b>Deploy and Monitor:</b></h4>
+                        <p class="text-sm text-muted-foreground">
+                        <ul>
+                            <li>Deploy your chatbot with the integrated LiveChat functionality.</li>
+                            <li>Monitor the interactions to ensure that your chatbot works seamlessly within the LiveChat environment.</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 12 -->
+            <div class="relative overflow-hidden rounded-lg border bg-white select-none p-2 hover:shadow-lg card">
+                <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+                    <div class="space-y-2">
+                        <h3 class="font-bold">Step 12</h3>
+                        <h4><b>Iterate and Optimize:</b></h4>
+                        <p class="text-sm text-muted-foreground">
+                        <ul>
+                            <li>Gather feedback from users and customer support teams.</li>
+                            <li>Iterate on your chatbot's functionality to improve its ability to provide assistance within the LiveChat platform.</li>
+                        </ul>
+                        <p>Please note that specific details may vary based on the programming language or framework you're using for your chatbot. Always refer to the official documentation of LiveChat and any chatbot frameworks or libraries you're using for more detailed and up-to-date information.</p>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div
-        class="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
-        <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
-           
-            <div class="space-y-2">
-                <h3 class="font-bold">Step 07</h3>
-                <h4><b>Handle Chat Events:</b></h4>
-                <p class="text-sm text-muted-foreground">
-                    Configure your chatbot to handle various chat events, such as when a new chat starts,
-                                    when a message is received, etc.
-                </p>
-            </div>
-        </div>
-    </div>
+    </section>
+</div>
+    <!-- features end -->
+    <br>
+    
+    <br>
+    <!-- card 2 start -->
     <div
-    class="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
-    <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
-       
-        <div class="space-y-2">
-            <h3 class="font-bold">Step 08</h3>
-            <h4><b>Test Integration:</b></h4>
-            <p class="text-sm text-muted-foreground">
-                Test your chatbot's integration with LiveChat. Make sure it can send and receive
-                                    messages as expected.
-            </p>
+        class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+        <h5 class="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Start a free ChatBot trial
+            and build your first chatbot today!</h5>
+        <p class="mb-5 text-base text-gray-500 sm:text-lg dark:text-gray-400">Stay up to date and move work forward with
+            Flowbite on iOS & Android. Download the app today.</p>
+        <div class="items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
+
+
+
+            <form class="flex items-center max-w-sm mx-auto">
+                <label for="simple-search" class="sr-only">Search</label>
+                <div class="relative w-full">
+                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 5v10M3 5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm12 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0V6a3 3 0 0 0-3-3H9m1.5-2-2 2 2 2" />
+                        </svg>
+                    </div>
+                    <input type="text" id="simple-search"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Enter your Business Email" required />
+                </div>
+                <button type="submit"
+                    class="p-1 ms-2 w-32 h-10 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-800 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Sign up free
+                </button>
+
+
+            </form>
+
         </div>
     </div>
-</div>
-<div
-class="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
-<div class="flex h-[180px] flex-col justify-between rounded-md p-6">
-   
-    <div class="space-y-2">
-        <h3 class="font-bold">Step 09</h3>
-        <h4><b>Handle Responses:</b></h4>
-        <p class="text-sm text-muted-foreground">
-            Implement logic in your chatbot to handle responses from LiveChat. For example,
-            acknowledge when a message is received and respond accordingly.
-        </p>
-    </div>
-</div>
-</div>
-<div
-class="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
-<div class="flex h-[180px] flex-col justify-between rounded-md p-6">
-   
-    <div class="space-y-2">
-        <h3 class="font-bold">Step 10</h3>
-        <h4><b>Error Handling:</b></h4>
-        <p class="text-sm text-muted-foreground">
-            Implement proper error handling in your chatbot to manage cases where the integration
-            with LiveChat API may fail.
-        </p>
-    </div>
-</div>
-</div>
-<div
-class="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
-<div class="flex h-[180px] flex-col justify-between rounded-md p-6">
-   
-    <div class="space-y-2">
-        <h3 class="font-bold">Step 11</h3>
-        <h4><b>Deploy and Monitor:</b></h4>
-        <p class="text-sm text-muted-foreground">
-            <ul>
-                <li>Deploy your chatbot with the integrated LiveChat functionality.</li>
-                <li>Monitor the interactions to ensure that your chatbot works seamlessly within the
-                    LiveChat environment.</li>
-            </ul>
-        </p>
-    </div>
-</div>
-</div>
-<div
-class="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
-<div class="flex h-[180px] flex-col justify-between rounded-md p-6">
-   
-    <div class="space-y-2">
-        <h3 class="font-bold">Step 12</h3>
-        <h4><b>Iterate and Optimize:</b></h4>
-        <p class="text-sm text-muted-foreground">
-            <ul>
-                <li>Gather feedback from users and customer support teams.</li>
-                <li>Iterate on your chatbot's functionality to improve its ability to provide
-                    assistance within the LiveChat platform.</li>
-            </ul>
-            <p>Please note that specific details may vary based on the programming language or
-                framework you're using for your chatbot. Always refer to the official documentation
-                of LiveChat and any chatbot frameworks or libraries you're using for more detailed
-                and up-to-date information</p>
+    <!-- card 2 end -->
 
-        </p>
-    </div>
-</div>
-</div>
-
-</div>
-
-    </div>
-
-</section>
-<!-- features end -->
-<br>
-<br>
-<br>
-
-<!-- pricing section -->
-<section class="py-6 leading-7 text-gray-900 bg-white sm:py-12 md:py-16">
-    <div class="box-border px-4 mx-auto border-solid sm:px-6 md:px-6 lg:px-0 max-w-7xl">
-
-        <div class="flex flex-col items-center leading-7 text-center text-gray-900 border-0 border-gray-200">
-            <h2 id="pricing"
-                class="box-border m-0 text-3xl font-semibold leading-tight tracking-tight text-black border-solid sm:text-4xl md:text-5xl">
-                Simple, Transparent Pricing
-            </h2>
-            <p class="box-border mt-2 text-xl text-gray-900 border-solid sm:text-2xl">
-            </p>
-        </div>
-
-        
-        <div id="pricing"
-            class="grid grid-cols-1 gap-4 mt-4 leading-7 text-gray-900 border-0 border-gray-200 sm:mt-6 sm:gap-6 md:mt-8 md:gap-0 lg:grid-cols-3">
-            <!-- Price 1 -->
-            <div
-                class="relative z-10 flex flex-col items-center max-w-md p-4 mx-auto my-0 border border-solid rounded-lg lg:-mr-3 sm:my-0 sm:p-6 md:my-8 md:p-8">
-                <h3
-                    class="m-0 text-2xl font-semibold leading-tight tracking-tight text-black border-0 border-gray-200 sm:text-3xl md:text-4xl">
-                    Starter
-                </h3>
-                <div class="flex items-end mt-6 leading-7 text-gray-900 border-0 border-gray-200">
-                    <p class="box-border m-0 text-6xl font-semibold leading-none border-solid">
-                        $1
-                    </p>
-                    <p class="box-border m-0 border-solid" style="border-image: initial;">
-                        / month
-                    </p>
-                </div>
-                <ul class="flex-1 p-0 mt-4 ml-5 leading-7 text-gray-900 border-0 border-gray-200">
-                    <li class="inline-flex items-center block w-full mb-2 ml-5 font-semibold text-left border-solid">
-                        <svg class="w-5 h-5 mr-2 font-semibold leading-7 text-blue-600 sm:h-5 sm:w-5 md:h-6 md:w-6"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
-                            </path>
-                        </svg>
-                        1 Website
-                    </li>
-
-                    <li class="inline-flex items-center block w-full mb-2 ml-5 font-semibold text-left border-solid">
-                        <svg class="w-5 h-5 mr-2 font-semibold leading-7 text-blue-600 sm:h-5 sm:w-5 md:h-6 md:w-6"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
-                            </path>
-                        </svg>
-                        SSL (HTTPS)
-                    </li>
-
-                    <li class="inline-flex items-center block w-full mb-2 ml-5 font-semibold text-left border-solid">
-                        <svg class="w-5 h-5 mr-2 font-semibold leading-7 text-blue-600 sm:h-5 sm:w-5 md:h-6 md:w-6"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
-                            </path>
-                        </svg>
-                        SiteFast Domain
-                    </li>
-
-                </ul>
-                <a href="#"
-                    class="inline-flex justify-center w-full px-4 py-3 mt-8 font-sans text-sm leading-none text-center text-blue-600 no-underline bg-transparent border border-blue-600 rounded-md cursor-pointer hover:bg-blue-700 hover:border-blue-700 hover:text-white focus-within:bg-blue-700 focus-within:border-blue-700 focus-within:text-white sm:text-base md:text-lg">
-                    Start Now
-                </a>
-            </div>
-            <!-- Price 2 -->
-            <div
-                class="relative z-20 flex flex-col items-center max-w-md p-4 mx-auto my-0 bg-white border-4 border-blue-600 border-solid rounded-lg sm:p-6 md:px-8 md:py-16">
-                <h3
-                    class="m-0 text-2xl font-semibold leading-tight tracking-tight text-black border-0 border-gray-200 sm:text-3xl md:text-4xl">
-                    Basic
-                </h3>
-                <div class="flex items-end mt-6 leading-7 text-gray-900 border-0 border-gray-200">
-                    <p class="box-border m-0 text-6xl font-semibold leading-none border-solid">
-                        $29
-                    </p>
-                    <p class="box-border m-0 border-solid" style="border-image: initial;">
-                        / month
-                    </p>
-                </div>
-                <ul class="flex-1 p-0 mt-4 ml-5 leading-7 text-gray-900 border-0 border-gray-200">
-                    <li class="inline-flex items-center block w-full mb-2 ml-5 font-semibold text-left border-solid">
-                        <svg class="w-5 h-5 mr-2 font-semibold leading-7 text-blue-600 sm:h-5 sm:w-5 md:h-6 md:w-6"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
-                            </path>
-                        </svg>
-                        15 Websites
-                    </li>
-
-                    <li class="inline-flex items-center block w-full mb-2 ml-5 font-semibold text-left border-solid">
-                        <svg class="w-5 h-5 mr-2 font-semibold leading-7 text-blue-600 sm:h-5 sm:w-5 md:h-6 md:w-6"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
-                            </path>
-                        </svg>
-                        SSL (HTTPS)
-                    </li>
-
-                    <li class="inline-flex items-center block w-full mb-2 ml-5 font-semibold text-left border-solid">
-                        <svg class="w-5 h-5 mr-2 font-semibold leading-7 text-blue-600 sm:h-5 sm:w-5 md:h-6 md:w-6"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
-                            </path>
-                        </svg>
-                        Custom Domain
-                    </li>
-
-                    <li class="inline-flex items-center block w-full mb-2 ml-5 font-semibold text-left border-solid">
-                        <svg class="w-5 h-5 mr-2 font-semibold leading-7 text-blue-600 sm:h-5 sm:w-5 md:h-6 md:w-6"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
-                            </path>
-                        </svg>
-                        SiteFast Branding Removal
-                    </li>
-                </ul>
-
-                <a href="#"
-                    class="inline-flex justify-center w-full px-4 py-3 mt-8 font-sans text-sm leading-none text-center text-white no-underline bg-blue-600 border rounded-md cursor-pointer hover:bg-blue-700 hover:border-blue-700 hover:text-white focus-within:bg-blue-700 focus-within:border-blue-700 focus-within:text-white sm:text-base md:text-lg">
-                    Start Now
-                </a>
-            </div>
-            <!-- Price 3 -->
-            <div
-                class="relative z-10 flex flex-col items-center max-w-md p-4 mx-auto my-0 border border-solid rounded-lg lg:-ml-3 sm:my-0 sm:p-6 md:my-8 md:p-8">
-                <h3
-                    class="m-0 text-2xl font-semibold leading-tight tracking-tight text-black border-0 border-gray-200 sm:text-3xl md:text-4xl">
-                    Plus
-                </h3>
-                <div class="flex items-end mt-6 leading-7 text-gray-900 border-0 border-gray-200">
-                    <p class="box-border m-0 text-6xl font-semibold leading-none border-solid">
-                        $49
-                    </p>
-                    <p class="box-border m-0 border-solid" style="border-image: initial;">
-                        / month
-                    </p>
+    <br>
+    <br>
+    <!-- footer start -->
+    <footer class="bg-white dark:bg-gray-900">
+        <div class="mx-auto w-full max-w-screen-xl">
+            <div class="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
+                <div>
+                    <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Product</h2>
+                    <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                        <li class="mb-4">
+                            <a href="#" class=" hover:underline">Pricing</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="#" class="hover:underline">Benefits</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="#" class="hover:underline">Features</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="#" class="hover:underline">Product Demo</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="#" class="hover:underline">Visual Builder</a>
+                        </li>
+                    </ul>
                 </div>
 
-                <ul class="flex-1 p-0 mt-4 leading-7 text-gray-900 border-0 border-gray-200">
-                    <li class="inline-flex items-center block w-full mb-2 ml-5 font-semibold text-left border-solid">
-                        <svg class="w-5 h-5 mr-2 font-semibold leading-7 text-blue-600 sm:h-5 sm:w-5 md:h-6 md:w-6"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
-                            </path>
+                <div>
+                    <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Solutions</h2>
+                    <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                        <li class="mb-4">
+                            <a href="Marketing.html" class="hover:underline">Marketing</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="Support.html" class="hover:underline">Customer Support</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="Sales.html" class="hover:underline">Sales</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="Education.html" class="hover:underline">Education</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Integrations</h2>
+                    <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                        <li class="mb-4">
+                            <a href="ChatWidget.html" class="hover:underline">Chat Widget</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="LiveChat.html" class="hover:underline">LiveChat</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="HelpDesk.html" class="hover:underline">HelpDesk</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="FacebookMessenger.html" class="hover:underline">Facebook Messenger</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="WordPress.html" class="hover:underline">WordPress</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
+                    <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                        <li class="mb-4">
+                            <a href="HelpCenter.html" class="hover:underline">Help Center</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="API&Developers.html" class="hover:underline">API & Developers</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="PartnerProgram.html" class="hover:underline">Partner Program</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="px-4 py-6 bg-gray-100 dark:bg-gray-700 md:flex md:items-center md:justify-between">
+                <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center">© 2024 <a
+                        href="https://flowbite.com/">avachatbot</a>. All Rights Reserved.
+                </span>
+                <div class="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">
+                    <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 8 19">
+                            <path fill-rule="evenodd"
+                                d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z"
+                                clip-rule="evenodd" />
                         </svg>
-                        50 Websites
-                    </li>
-
-                    <li class="inline-flex items-center block w-full mb-2 ml-5 font-semibold text-left border-solid">
-                        <svg class="w-5 h-5 mr-2 font-semibold leading-7 text-blue-600 sm:h-5 sm:w-5 md:h-6 md:w-6"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
-                            </path>
+                        <span class="sr-only">Facebook page</span>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 21 16">
+                            <path
+                                d="M16.942 1.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.585 11.585 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3A17.392 17.392 0 0 0 .182 13.218a15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.63 10.63 0 0 1-1.706-.83c.143-.106.283-.217.418-.33a11.664 11.664 0 0 0 10.118 0c.137.113.277.224.418.33-.544.328-1.116.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM6.678 10.813a1.941 1.941 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z" />
                         </svg>
-                        SSL (HTTPS)
-                    </li>
-
-                    <li class="inline-flex items-center block w-full mb-2 ml-5 font-semibold text-left border-solid">
-                        <svg class="w-5 h-5 mr-2 font-semibold leading-7 text-blue-600 sm:h-5 sm:w-5 md:h-6 md:w-6"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
-                            </path>
+                        <span class="sr-only">Discord community</span>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 20 17">
+                            <path fill-rule="evenodd"
+                                d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z"
+                                clip-rule="evenodd" />
                         </svg>
-                        Custom Domain
-                    </li>
-
-
-                    <li class="inline-flex items-center block w-full mb-2 ml-5 font-semibold text-left border-solid">
-                        <svg class="w-5 h-5 mr-2 font-semibold leading-7 text-blue-600 sm:h-5 sm:w-5 md:h-6 md:w-6"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
-                            </path>
+                        <span class="sr-only">Twitter page</span>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z"
+                                clip-rule="evenodd" />
                         </svg>
-                        SiteFast Branding Removal
-                    </li>
-
-
-                    <li class="inline-flex items-center block w-full mb-2 ml-5 font-semibold text-left border-solid">
-                        <svg class="w-5 h-5 mr-2 font-semibold leading-7 text-blue-600 sm:h-5 sm:w-5 md:h-6 md:w-6"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
-                            </path>
+                        <span class="sr-only">GitHub account</span>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10 0a10 10 0 1 0 10 10A10.009 10.009 0 0 0 10 0Zm6.613 4.614a8.523 8.523 0 0 1 1.93 5.32 20.094 20.094 0 0 0-5.949-.274c-.059-.149-.122-.292-.184-.441a23.879 23.879 0 0 0-.566-1.239 11.41 11.41 0 0 0 4.769-3.366ZM8 1.707a8.821 8.821 0 0 1 2-.238 8.5 8.5 0 0 1 5.664 2.152 9.608 9.608 0 0 1-4.476 3.087A45.758 45.758 0 0 0 8 1.707ZM1.642 8.262a8.57 8.57 0 0 1 4.73-5.981A53.998 53.998 0 0 1 9.54 7.222a32.078 32.078 0 0 1-7.9 1.04h.002Zm2.01 7.46a8.51 8.51 0 0 1-2.2-5.707v-.262a31.64 31.64 0 0 0 8.777-1.219c.243.477.477.964.692 1.449-.114.032-.227.067-.336.1a13.569 13.569 0 0 0-6.942 5.636l.009.003ZM10 18.556a8.508 8.508 0 0 1-5.243-1.8 11.717 11.717 0 0 1 6.7-5.332.509.509 0 0 1 .055-.02 35.65 35.65 0 0 1 1.819 6.476 8.476 8.476 0 0 1-3.331.676Zm4.772-1.462A37.232 37.232 0 0 0 13.113 11a12.513 12.513 0 0 1 5.321.364 8.56 8.56 0 0 1-3.66 5.73h-.002Z"
+                                clip-rule="evenodd" />
                         </svg>
-                        Google Analytics
-                    </li>
-
-                    <li class="inline-flex items-center block w-full mb-2 ml-5 font-semibold text-left border-solid">
-                        <svg class="w-5 h-5 mr-2 font-semibold leading-7 text-blue-600 sm:h-5 sm:w-5 md:h-6 md:w-6"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
-                            </path>
-                        </svg>
-                        Email Integration
-                    </li>
-
-                </ul>
-                <a href="#"
-                    class="inline-flex justify-center w-full px-4 py-3 mt-8 font-sans text-sm leading-none text-center text-blue-600 no-underline bg-transparent border border-blue-600 rounded-md cursor-pointer hover:bg-blue-700 hover:border-blue-700 hover:text-white focus-within:bg-blue-700 focus-within:border-blue-700 focus-within:text-white sm:text-base md:text-lg">
-                    Start Now
-                </a>
-
+                        <span class="sr-only">Dribbble account</span>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- pricing section end -->
-<br>
-<br>
-<!-- card 2 start -->
-<div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-    <h5 class="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Work fast from anywhere</h5>
-    <p class="mb-5 text-base text-gray-500 sm:text-lg dark:text-gray-400">Stay up to date and move work forward with Flowbite on iOS & Android. Download the app today.</p>
-    <div class="items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
-        <a href="#" class="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
-            <svg class="me-3 w-7 h-7" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="apple" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"></path></svg>
-            <div class="text-left rtl:text-right">
-                <div class="mb-1 text-xs">Download on the</div>
-                <div class="-mt-1 font-sans text-sm font-semibold">Mac App Store</div>
-            </div>
-        </a>
-        <a href="#" class="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
-            <svg class="me-3 w-7 h-7" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google-play" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"></path></svg>
-            <div class="text-left rtl:text-right">
-                <div class="mb-1 text-xs">Get in on</div>
-                <div class="-mt-1 font-sans text-sm font-semibold">Google Play</div>
-            </div>
-        </a>
-    </div>
-</div>
-<!-- card 2 end -->
+    </footer>
+    <!-- footer end  -->
 
-<br>
-<br>
-<!-- footer start -->
-<footer class="bg-white dark:bg-gray-900">
-    <div class="mx-auto w-full max-w-screen-xl">
-      <div class="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
-        <div>
-            <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Product</h2>
-            <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                <li class="mb-4">
-                    <a href="#" class=" hover:underline">Pricing</a>
-                </li>
-                <li class="mb-4">
-                    <a href="#" class="hover:underline">Benefits</a>
-                </li>
-                <li class="mb-4">
-                    <a href="#" class="hover:underline">Features</a>
-                </li>
-                <li class="mb-4">
-                    <a href="#" class="hover:underline">Product Demo</a>
-                </li>
-                <li class="mb-4">
-                    <a href="#" class="hover:underline">Visual Builder</a>
-                </li>
-            </ul>
-        </div>
-         
-        <div>
-            <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Solutions</h2>
-            <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                <li class="mb-4">
-                    <a href="Marketing.html" class="hover:underline">Marketing</a>
-                </li>
-                <li class="mb-4">
-                    <a href="Support.html" class="hover:underline">Customer Support</a>
-                </li>
-                <li class="mb-4">
-                    <a href="Sales.html" class="hover:underline">Sales</a>
-                </li>
-                <li class="mb-4">
-                    <a href="Education.html" class="hover:underline">Education</a>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Integrations</h2>
-            <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                <li class="mb-4">
-                    <a href="ChatWidget.html" class="hover:underline">Chat Widget</a>
-                </li>
-                <li class="mb-4">
-                    <a href="LiveChat.html" class="hover:underline">LiveChat</a>
-                </li>
-                <li class="mb-4">
-                    <a href="HelpDesk.html" class="hover:underline">HelpDesk</a>
-                </li>
-                <li class="mb-4">
-                    <a href="FacebookMessenger.html" class="hover:underline">Facebook Messenger</a>
-                </li>
-                <li class="mb-4">
-                    <a href="WordPress.html" class="hover:underline">WordPress</a>
-                </li>
-               
-            </ul>
-        </div>
-        <div>
-            <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
-            <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                <li class="mb-4">
-                    <a href="HelpCenter.html" class="hover:underline">Help Center</a>
-                </li>
-                <li class="mb-4">
-                    <a href="API&Developers.html" class="hover:underline">API & Developers</a>
-                </li>
-                <li class="mb-4">
-                    <a href="PartnerProgram.html" class="hover:underline">Partner Program</a>
-                </li>
-                
-            </ul>
-        </div>
-    </div>
-    <div class="px-4 py-6 bg-gray-100 dark:bg-gray-700 md:flex md:items-center md:justify-between">
-        <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center">© 2024 <a href="https://flowbite.com/">avachatbot</a>. All Rights Reserved.
-        </span>
-        <div class="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">
-            <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
-                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
-                        <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd"/>
-                    </svg>
-                  <span class="sr-only">Facebook page</span>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
-                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 21 16">
-                        <path d="M16.942 1.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.585 11.585 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3A17.392 17.392 0 0 0 .182 13.218a15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.63 10.63 0 0 1-1.706-.83c.143-.106.283-.217.418-.33a11.664 11.664 0 0 0 10.118 0c.137.113.277.224.418.33-.544.328-1.116.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM6.678 10.813a1.941 1.941 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z"/>
-                    </svg>
-                  <span class="sr-only">Discord community</span>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
-                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 17">
-                    <path fill-rule="evenodd" d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z" clip-rule="evenodd"/>
-                </svg>
-                  <span class="sr-only">Twitter page</span>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
-                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z" clip-rule="evenodd"/>
-                  </svg>
-                  <span class="sr-only">GitHub account</span>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
-                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 0a10 10 0 1 0 10 10A10.009 10.009 0 0 0 10 0Zm6.613 4.614a8.523 8.523 0 0 1 1.93 5.32 20.094 20.094 0 0 0-5.949-.274c-.059-.149-.122-.292-.184-.441a23.879 23.879 0 0 0-.566-1.239 11.41 11.41 0 0 0 4.769-3.366ZM8 1.707a8.821 8.821 0 0 1 2-.238 8.5 8.5 0 0 1 5.664 2.152 9.608 9.608 0 0 1-4.476 3.087A45.758 45.758 0 0 0 8 1.707ZM1.642 8.262a8.57 8.57 0 0 1 4.73-5.981A53.998 53.998 0 0 1 9.54 7.222a32.078 32.078 0 0 1-7.9 1.04h.002Zm2.01 7.46a8.51 8.51 0 0 1-2.2-5.707v-.262a31.64 31.64 0 0 0 8.777-1.219c.243.477.477.964.692 1.449-.114.032-.227.067-.336.1a13.569 13.569 0 0 0-6.942 5.636l.009.003ZM10 18.556a8.508 8.508 0 0 1-5.243-1.8 11.717 11.717 0 0 1 6.7-5.332.509.509 0 0 1 .055-.02 35.65 35.65 0 0 1 1.819 6.476 8.476 8.476 0 0 1-3.331.676Zm4.772-1.462A37.232 37.232 0 0 0 13.113 11a12.513 12.513 0 0 1 5.321.364 8.56 8.56 0 0 1-3.66 5.73h-.002Z" clip-rule="evenodd"/>
-                </svg>
-                  <span class="sr-only">Dribbble account</span>
-              </a>
-        </div>
-      </div>
-    </div>
-</footer>
-<!-- footer end  -->
-
-
+  
 </body>
 
 
