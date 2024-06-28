@@ -16,15 +16,40 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- icon end -->
     <style>
-        /* Custom styles for dropdown positioning */
-        .dropdown-menu {
-            display: none;
-        }
-
-        .dropdown:hover .dropdown-menu {
-            display: block;
-
-        }
+       /* Ensure dropdown menus appear above other content */
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      background-color: white;
+      z-index: 10;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 20;
+    }
+    .mobile-menu-content {
+      background-color: white;
+      width: 80%;
+      height: 100%;
+      overflow-y: auto;
+    }
+    .mobile-menu.open {
+      display: block;
+    }
 
         @keyframes fadeIn {
             from {
@@ -99,154 +124,76 @@
 
 <body>
     <!-- navbar start -->
+    
     <nav class="bg-white border-gray-200 dark:bg-gray-900">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">AvaChatBot</span>
-            </a>
-            <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                <div class="flex items-center space-x-4">
-                    <button
-                        class="text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-600">
-                        <i class="fas fa-search"></i>
-                    </button>
-                    <a href="#" class="text-gray-900 hover:text-blue-700 dark:text-white dark:hover:text-blue-500">My
-                        Account <i class="fa-solid fa-address-book"></i></a>
-                    <button
-                        class="bg-gray-800 text-white px-5 py-2.5 rounded-lg hover:bg-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600">Login
-                        <i class="fas fa-sign-in-alt"></i></button>
+          <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">AvaChatBot</span>
+          </a>
+          <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+            <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</button>
+            <button data-collapse-toggle="navbar-cta" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-cta" aria-expanded="false">
+              <span class="sr-only">Open main menu</span>
+              <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+              </svg>
+            </button>
+          </div>
+          <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
+            <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+              <li class="relative group dropdown">
+                <a href="#" class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500" aria-current="page">Products<span class="inline-block transform rotate-0 group-hover:rotate-180 transition-transform duration-200">&#9662;</span></a>
+                <div class="dropdown-menu">
+                  <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">Benefits</a>
+                  <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">Features</a>
+                  <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">Visual Builder</a>
                 </div>
-                <div class="relative">
-                    <button type="button"
-                        class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-                        id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
-                        data-dropdown-placement="bottom">
-                        <span class="sr-only">Open user menu</span>
-                    </button>
-                    <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
-                        id="user-dropdown">
-                        <div class="px-4 py-3">
-                            <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
-                            <span
-                                class="block text-sm text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
-                        </div>
-                        <ul class="py-2" aria-labelledby="user-menu-button">
-                            <li>
-                                <a href="#"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
-                                    out</a>
-                            </li>
-                        </ul>
-                    </div>
+              </li>
+              <li class="relative group dropdown">
+                <a href="#" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Solutions<span class="inline-block transform rotate-0 group-hover:rotate-180 transition-transform duration-200">&#9662;</span></a>
+                <div class="dropdown-menu">
+                  <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"><i class="fa-solid fa-bullhorn"></i> Marketing</a>
+                  <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"><i class="fa-solid fa-cart-shopping"></i> Sales</a>
+                  <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"><i class="fa-solid fa-address-book"></i> Support</a>
+                  <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+                  <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"><i class="fa-solid fa-earth-americas"></i> Enterprise</a>
+                  <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"><i class="fa-regular fa-heart"></i> Healthcare</a>
                 </div>
-                <button data-collapse-toggle="navbar-user" type="button"
-                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                    aria-controls="navbar-user" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
-                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 17 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M1 1h15M1 7h15M1 13h15" />
-                    </svg>
-                </button>
-            </div>
-            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
-                <ul
-                    class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                    <li class="relative dropdown">
-                        <a href="#"
-                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Products
-                            <i class="fas fa-caret-down"></i></a>
-                        <div
-                            class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg dropdown-menu">
-                            <a href="Benefits.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Benefits</a>
-                            <a href="Features.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Features</a>
-                            <a href="VisualBuilder.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Visual
-                                Builder</a>
-                        </div>
-                    </li>
-                    <li class="relative dropdown">
-                        <a href="#"
-                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Solutions
-                            <i class="fas fa-caret-down"></i></a>
-                        <div
-                            class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg dropdown-menu">
-                            <a href="Marketing.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
-                                    class="fa-solid fa-bullhorn"></i> Marketing</a>
-                            <a href="Sales.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
-                                    class="fa-solid fa-cart-shopping"></i>Sales</a>
-                            <a href="Support.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
-                                    class="fa-solid fa-address-book"></i>Support</a>
-                            <a href="Education.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
-                                    class="fa-solid fa-graduation-cap"></i>Education</a>
-                            <a href="Enterprise.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
-                                    class="fa-solid fa-earth-americas"></i>Enterprise</a>
-                            <a href="Healthcare.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
-                                    class="fa-regular fa-heart"></i>Healthcare</a>
-                        </div>
-                    </li>
-                    <li class="relative dropdown">
-                        <a href="#"
-                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Integration
-                            <i class="fas fa-caret-down"></i></a>
-                        <div
-                            class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg dropdown-menu">
-                            <a href="LiveWidget.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
-                                    class="fa-solid fa-message"></i>Chat Widget</a>
-                            <a href="LiveChat.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
-                                    class="fa-solid fa-headset"></i>Live Chat</a>
-                            <a href="HelpDesk.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
-                                    class="fa-regular fa-square-check"></i>Help Desk</a>
-                            <a href="FaceBookMessenger.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
-                                    class="fa-brands fa-facebook-messenger"></i>FaceBook Messenger</a>
-                            <a href="Shopify.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
-                                    class="fa-brands fa-shopify"></i>Shopify</a>
-                            <a href="Slack.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
-                                    class="fa-brands fa-slack"></i>Slack</a>
-                            <a href="WordPress.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
-                                    class="fa-brands fa-wordpress-simple"></i>WordPress</a>
-                            <a href="SeeAllIntegration.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">See
-                                all Integration</a>
-                        </div>
-                    </li>
-                    <li class="relative dropdown">
-                        <a href="#"
-                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Resources
-                            <i class="fas fa-caret-down"></i></a>
-                        <div
-                            class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg dropdown-menu">
-                            <a href="HelpCenter.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
-                                    class="fa-solid fa-handshake-angle"></i>Help Center</a>
-                            <a href="API&Developers.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
-                                    class="fa-brands fa-uncharted"></i>API & Developers</a>
-                            <a href="PartnerProgram.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><i
-                                    class="fa-regular fa-star"></i>Partner Program</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <a href="Pricing.html"
-                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Pricing</a>
-                    </li>
-                </ul>
-            </div>
+              </li>
+              <li class="relative group dropdown">
+                <a href="#" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Integration<span class="inline-block transform rotate-0 group-hover:rotate-180 transition-transform duration-200">&#9662;</span></a>
+                <div class="dropdown-menu">
+                  <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"><i class="fa-solid fa-message"></i> Chat Widget</a>
+                  <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"><i class="fa-solid fa-headset"></i> Live Chat</a>
+                  <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"><i class="fa-regular fa-square-check"></i> Help Desk</a>
+                  <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"><i class="fa-brands fa-facebook-messenger"></i> FaceBook Messenger</a>
+                  <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"><i class="fa-brands fa-shopify"></i> Shopify</a>
+                  <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"><i class="fa-brands fa-slack"></i> Slack</a>
+                  <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"><i class="fa-brands fa-wordpress-simple"></i> WordPress</a>
+                  <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">See all Integration</a>
+                </div>
+              </li>
+              <li class="relative group dropdown">
+                <a href="#" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Resources<span class="inline-block transform rotate-0 group-hover:rotate-180 transition-transform duration-200">&#9662;</span></a>
+                <div class="dropdown-menu">
+                  <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"><i class="fa-solid fa-handshake-angle"></i>Help Center</a>
+                  <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"><i class="fa-brands fa-uncharted"></i>API & Developers</a>
+                  <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"><i class="fa-regular fa-star"></i>Partner Program</a>
+                </div>
+              </li>
+              <li>
+                <a href="#" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+              </li>
+              <li>
+                <a href="#" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+              </li>
+            </ul>
+          </div>
         </div>
-    </nav>
-
-    <!-- navbar end -->
+      </nav>
+      
+     <!-- navbar end -->
     <!-- hero section  -->
     <section class="bg-white dark:bg-gray-900 animate-fadeIn">
         <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
@@ -260,6 +207,25 @@
                     "From instant customer support to seamless engagement, businesses worldwide rely on AvaChatBot to
                     enhance their online presence."
                 </p>
+                <br>
+                <br>
+                <form class="max-w-md mx-auto">   
+                   <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+                      <div class="relative">
+                           <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                              <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                              </svg>
+                           </div>
+                             <input type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Mockups, Logos..." required />
+                           <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+                      </div>
+                </form>
+                <br>
+                <!--  -->
+                
+                <!--  -->
+
                 <a href="#"
                     class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 transform hover:scale-105 transition-transform">
                     Get started
@@ -689,6 +655,15 @@
         </div>
     </footer>
     <!-- footer end  -->
+
+    <script>
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+      
+        mobileMenuToggle.addEventListener('click', () => {
+          mobileMenu.classList.toggle('translate-x-full');
+        });
+      </script>
 
   
 </body>
